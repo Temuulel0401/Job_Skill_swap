@@ -1,344 +1,39 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkillHire – Mongolia Talent Platform</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
---primary:#2563eb;
---primary-light:#eef2ff;
---bg:#f5f7fb;
---white:#ffffff;
---text:#1e293b;
---muted:#64748b;
---border:#e2e8f0;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
-
-header{
-background:var(--white);
-height:70px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 6%;
-border-bottom:1px solid var(--border);
-position:sticky;top:0;z-index:100;
-}
-
-.logo{font-weight:800;color:var(--primary);font-size:20px;text-decoration:none}
-
-nav{display:flex;gap:25px;align-items:center}
-
-nav a{font-weight:600;color:var(--muted);cursor:pointer;text-decoration:none}
-nav a:hover{color:var(--primary)}
-
-.btn{
-padding:8px 18px;
-border-radius:6px;
-border:none;
-cursor:pointer;
-font-weight:600;
-}
-
-.btn-primary{background:var(--primary);color:white}
-.btn-outline{background:#e2e8f0}
-
-.hero{
-padding:50px 6%;
-text-align:center;
-}
-
-.hero h1{
-font-size:28px;
-margin-bottom:20px;
-font-weight:800;
-}
-
-.search-box{
-max-width:850px;
-margin:0 auto;
-display:grid;
-grid-template-columns:1fr 1fr 150px;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 6px 20px rgba(0,0,0,.05);
-}
-
-.search-box input{
-padding:14px;
-border:none;
-border-right:1px solid var(--border);
-}
-
-.search-box button{
-background:var(--primary);
-color:white;
-border:none;
-cursor:pointer;
-}
-
-.container{
-max-width:1200px;
-margin:40px auto;
-padding:0 20px;
-display:grid;
-grid-template-columns:420px 1fr;
-gap:30px;
-}
-
-.job-list{display:flex;flex-direction:column;gap:15px}
-
-.job-card{
-background:var(--white);
-padding:20px;
-border-radius:12px;
-border:1px solid var(--border);
-cursor:pointer;
-transition:.2s;
-}
-
-.job-card:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,.05)}
-
-.job-card.active{
-border:2px solid var(--primary);
-background:var(--primary-light);
-}
-
-.badge{
-font-size:12px;
-font-weight:700;
-padding:4px 10px;
-border-radius:20px;
-display:inline-block;
-margin-bottom:8px;
-}
-
-.badge-paid{background:#dcfce7;color:#166534}
-.badge-swap{background:#f3e8ff;color:#6b21a8}
-
-.detail{
-background:var(--white);
-border-radius:16px;
-padding:30px;
-border:1px solid var(--border);
-}
-
-.detail h2{margin-bottom:10px}
-.detail p{margin-bottom:10px;color:var(--muted)}
-
-.detail-actions{margin-top:20px;display:flex;gap:15px}
-
-.section{display:none}
-.section.active{display:block}
-
-/* DASHBOARD */
-.dashboard-box{
-background:var(--white);
-padding:30px;
-border-radius:16px;
-border:1px solid var(--border);
-}
-
-/* MODAL */
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.5);
-display:none;
-justify-content:center;
-align-items:center;
-}
-
-.modal-content{
-background:white;
-width:360px;
-padding:30px;
-border-radius:12px;
-}
-
-.modal-content h3{margin-bottom:15px}
-.modal-content input{
-width:100%;
-padding:10px;
-margin-bottom:12px;
-border:1px solid var(--border);
-border-radius:6px;
-}
-
-.switch{
-text-align:center;
-font-size:13px;
-margin-top:10px;
-cursor:pointer;
-color:var(--primary);
-}
-
-@media(max-width:900px){
-.container{grid-template-columns:1fr}
-}
-</style>
+    <meta charset="UTF-8">
+    <title>SkillHire</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<a class="logo">SkillHire</a>
-<nav id="navArea">
-<a onclick="showSection('home')">Нүүр</a>
-<a onclick="showSection('jobs')">Ажлын байр</a>
-<a onclick="showSection('swap')">Skill Swap</a>
-<a onclick="showDashboard()">Dashboard</a>
-<span id="authButtons">
-<button class="btn btn-outline" onclick="openModal('login')">Нэвтрэх</button>
-<button class="btn btn-primary" onclick="openModal('register')">Бүртгүүлэх</button>
-</span>
-</nav>
-</header>
+    <header>
+        <h2>SkillHire</h2>
+        <button onclick="openLogin()">Нэвтрэх</button>
+        <button onclick="openRegister()">Бүртгүүлэх</button>
+    </header>
 
-<!-- HOME -->
-<section id="home" class="section active">
-<div class="hero">
-<h1>Монголын чадварлаг хүмүүсийг холбох платформ</h1>
-<div class="search-box">
-<input placeholder="Ажил эсвэл ур чадвар хайх...">
-<input placeholder="Байршил">
-<button>Хайх</button>
-</div>
-</div>
-</section>
+    <h1>Монголын ажлын платформ</h1>
 
-<!-- JOBS -->
-<section id="jobs" class="section">
-<div class="container">
-<div class="job-list" id="jobList"></div>
-<div class="detail" id="jobDetail"></div>
-</div>
-</section>
+    <div id="jobs">
+        <h3>Ажлын жагсаалт</h3>
+        <button onclick="showJob1()">Backend Developer</button>
+        <button onclick="showJob2()">Skill Swap</button>
+    </div>
 
-<!-- SWAP -->
-<section id="swap" class="section">
-<div style="padding:50px 6%">
-<h2>Skill Swap зарууд</h2>
-<p style="color:var(--muted);margin-top:10px">Ур чадвараа солилцож хамтдаа хөгжицгөөе.</p>
-</div>
-</section>
+    <div id="jobDetail">
+        <p>Ажил сонгоно уу...</p>
+    </div>
 
-<!-- DASHBOARD -->
-<section id="dashboard" class="section">
-<div style="padding:50px 6%">
-<div class="dashboard-box">
-<h2>Миний Dashboard</h2>
-<p id="userInfo"></p>
-</div>
-</div>
-</section>
+    <!-- Login/Register хэсэг -->
+    <div id="authBox" style="display:none;">
+        <h3 id="authTitle">Нэвтрэх</h3>
+        <input type="text" id="name" placeholder="Нэр">
+        <input type="email" id="email" placeholder="Имэйл">
+        <input type="password" id="password" placeholder="Нууц үг">
+        <button onclick="submitForm()">Илгээх</button>
+    </div>
 
-<!-- MODAL -->
-<div class="modal" id="authModal">
-<div class="modal-content">
-<h3 id="modalTitle">Нэвтрэх</h3>
-<input type="text" id="nameField" placeholder="Нэр" style="display:none;">
-<input type="email" id="emailField" placeholder="Имэйл">
-<input type="password" id="passField" placeholder="Нууц үг">
-<button class="btn btn-primary" style="width:100%" onclick="submitAuth()">Илгээх</button>
-<div class="switch" onclick="switchMode()">Бүртгүүлэх үү?</div>
-</div>
-</div>
-
-<script>
-const jobs=[
-{type:"paid",title:"Senior Backend Developer",company:"Unitel Group",desc:"Cloud систем дээр ажиллах туршлагатай backend developer хайж байна."},
-{type:"swap",title:"Япон хэл ↔ Motion Design",company:"Хувь хүн",desc:"After Effects заалгаж Япон хэл заана."}
-];
-
-const jobList=document.getElementById("jobList");
-const jobDetail=document.getElementById("jobDetail");
-
-jobs.forEach((job,i)=>{
-const div=document.createElement("div");
-div.className="job-card"+(i===0?" active":"");
-div.innerHTML=`
-<span class="badge ${job.type==="paid"?"badge-paid":"badge-swap"}">${job.type==="paid"?"Цалинтай":"Skill Swap"}</span>
-<div><strong>${job.title}</strong></div>
-<div style="color:var(--primary);font-size:14px">${job.company}</div>
-`;
-div.onclick=()=>selectJob(i);
-jobList.appendChild(div);
-});
-
-function selectJob(i){
-document.querySelectorAll(".job-card").forEach(c=>c.classList.remove("active"));
-jobList.children[i].classList.add("active");
-jobDetail.innerHTML=`
-<h2>${jobs[i].title}</h2>
-<p><strong>Байгууллага:</strong> ${jobs[i].company}</p>
-<p>${jobs[i].desc}</p>
-<div class="detail-actions">
-<button class="btn btn-primary">Apply</button>
-<button class="btn btn-outline">Хадгалах</button>
-</div>
-`;
-}
-selectJob(0);
-
-function showSection(id){
-document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-}
-
-let currentUser=null;
-
-function showDashboard(){
-if(!currentUser){alert("Эхлээд нэвтэрнэ үү");return;}
-showSection("dashboard");
-document.getElementById("userInfo").innerText="Тавтай морил, "+currentUser;
-}
-
-let mode="login";
-function openModal(type){
-mode=type;
-document.getElementById("authModal").style.display="flex";
-updateModal();
-}
-
-function switchMode(){
-mode=mode==="login"?"register":"login";
-updateModal();
-}
-
-function updateModal(){
-document.getElementById("modalTitle").innerText=mode==="login"?"Нэвтрэх":"Бүртгүүлэх";
-document.getElementById("nameField").style.display=mode==="register"?"block":"none";
-document.querySelector(".switch").innerText=mode==="login"?"Бүртгүүлэх үү?":"Нэвтрэх үү?";
-}
-
-function submitAuth(){
-const name=document.getElementById("nameField").value;
-const email=document.getElementById("emailField").value;
-
-if(mode==="register"){
-currentUser=name||email;
-}else{
-currentUser=email;
-}
-
-document.getElementById("authButtons").innerHTML=`<span style="font-weight:600;color:var(--primary)">${currentUser}</span>`;
-document.getElementById("authModal").style.display="none";
-alert("Амжилттай!");
-}
-
-window.onclick=function(e){
-if(e.target.classList.contains("modal")){
-e.target.style.display="none";
-}
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
