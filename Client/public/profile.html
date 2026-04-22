@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillHire – Профайл</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo"><h2>Skill<span>Hire</span></h2></div>
+  <nav class="navbar">
+    <a href="index.html">Нүүр</a>
+    <a href="jobs.html">Ажлын байр</a>
+    <a href="skills.html">Ур чадвар</a>
+    <a href="profile.html">Хувийн профайл</a>
+  </nav>
+  <div class="header-buttons">
+    <button class="login-btn">Нэвтрэх</button>
+    <button class="register-btn">Бүртгүүлэх</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Хувийн профайл</h1>
+    <p>Таны ур чадвар болон туршлагыг ажил олгогчид харах боломж</p>
+  </div>
+</div>
+
+<div class="profile-layout">
+  <!-- SIDEBAR -->
+  <aside class="profile-card">
+    <div class="profile-avatar">👤</div>
+    <div class="profile-name">Батболд Эрдэнэ</div>
+    <div class="profile-title">Frontend Developer • Улаанбаатар</div>
+    <div class="profile-stats">
+      <div>
+        <div class="profile-stat-num">12</div>
+        <div class="profile-stat-label">Ур чадвар</div>
+      </div>
+      <div>
+        <div class="profile-stat-num">4</div>
+        <div class="profile-stat-label">Жил туршлага</div>
+      </div>
+      <div>
+        <div class="profile-stat-num">98%</div>
+        <div class="profile-stat-label">Профайл</div>
+      </div>
+    </div>
+    <button class="edit-btn">✏️ Профайл засах</button>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="profile-sections">
+
+    <div class="section-card">
+      <h3>Товч танилцуулга</h3>
+      <p style="font-size:0.9rem;color:var(--ink-soft);line-height:1.75">
+        Би 4 жилийн туршлагатай Frontend хөгжүүлэгч. React, TypeScript ашиглан вэб аппликейшн бүтээх дадлагатай. UX дизайны талаар мэдлэгтэй, хурдан суралцдаг.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h3>Ажлын туршлага</h3>
+      <div class="exp-item">
+        <div class="exp-title">Senior Frontend Developer</div>
+        <div class="exp-company">Mobicom Corporation • 2022 – Одоо</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-title">Frontend Developer</div>
+        <div class="exp-company">StartupMN • 2020 – 2022</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-title">Junior Developer</div>
+        <div class="exp-company">Freelance • 2019 – 2020</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Ур чадварууд</h3>
+      <div class="skills-chips">
+        <span class="chip">React</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Next.js</span>
+        <span class="chip">Node.js</span>
+        <span class="chip">Figma</span>
+        <span class="chip">CSS / Tailwind</span>
+        <span class="chip">Git</span>
+        <span class="chip">REST API</span>
+        <span class="chip">GraphQL</span>
+        <span class="chip">Jest</span>
+        <span class="chip">Docker</span>
+        <span class="chip">AWS</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Боловсрол</h3>
+      <div class="exp-item">
+        <div class="exp-title">Компьютерийн Шинжлэх Ухаан</div>
+        <div class="exp-company">Монгол Улсын Их Сургууль • 2015 – 2019</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="login">Нэвтрэх</button>
+      <button class="modal-tab" data-tab="register">Бүртгүүлэх</button>
+    </div>
+    <div class="tab-panel active" id="loginPanel">
+      <h2>Сайн уу 👋</h2>
+      <p class="modal-sub">Таны бүртгэлрүү нэвтэрнэ үү</p>
+      <div class="form-group"><label>И-мэйл</label><input type="email" placeholder="name@example.com"></div>
+      <div class="form-group"><label>Нууц үг</label><input type="password" placeholder="••••••••"></div>
+      <button class="modal-btn">Нэвтрэх →</button>
+      <p class="modal-footer-text">Бүртгэлгүй юу? <a data-open-tab="register">Бүртгүүлэх</a></p>
+    </div>
+    <div class="tab-panel" id="registerPanel">
+      <h2>Бүртгүүлэх ✨</h2>
+      <p class="modal-sub">SkillHire-д тавтай морил</p>
+      <div class="form-group"><label>Нэр</label><input type="text" placeholder="Таны нэр"></div>
+      <div class="form-group"><label>И-мэйл</label><input type="email" placeholder="name@example.com"></div>
+      <div class="form-group"><label>Нууц үг</label><input type="password" placeholder="••••••••"></div>
+      <button class="modal-btn">Бүртгүүлэх →</button>
+      <p class="modal-footer-text">Аль хэдийн бүртгэлтэй? <a data-open-tab="login">Нэвтрэх</a></p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2026 SkillHire Platform</p>
+  <div class="footer-links">
+    <a href="#">About</a><a href="#">Contact</a><a href="#">Privacy</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

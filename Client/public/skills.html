@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillHire – Ур чадвар</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo"><h2>Skill<span>Hire</span></h2></div>
+  <nav class="navbar">
+    <a href="index.html">Нүүр</a>
+    <a href="jobs.html">Ажлын байр</a>
+    <a href="skills.html">Ур чадвар</a>
+    <a href="profile.html">Хувийн профайл</a>
+  </nav>
+  <div class="header-buttons">
+    <button class="login-btn">Нэвтрэх</button>
+    <button class="register-btn">Бүртгүүлэх</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Ур чадвар</h1>
+    <p>Өөрийн мэргэжлийн ур чадвараа нэмж, ажил олгогчдод харагдах боломж нэмэгдүүл</p>
+  </div>
+</div>
+
+<div class="skills-grid">
+
+  <div class="skill-card">
+    <div class="skill-icon">💻</div>
+    <h3>Програм хангамж</h3>
+    <p>Web хөгжүүлэлт, mobile app, backend систем болон бусад техникийн ур чадварууд</p>
+    <div class="skill-count">↗ 340 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">🎨</div>
+    <h3>Дизайн & Бүтээлч</h3>
+    <p>UI/UX дизайн, брэнд дизайн, graphic design болон бүтээлч ажлууд</p>
+    <div class="skill-count">↗ 180 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">📊</div>
+    <h3>Дата & Шинжилгээ</h3>
+    <p>Өгөгдлийн шинжилгээ, machine learning, BI хэрэгслүүд</p>
+    <div class="skill-count">↗ 120 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">📣</div>
+    <h3>Маркетинг</h3>
+    <p>Дижитал маркетинг, SEO/SEM, нийгмийн сүлжээний менежмент</p>
+    <div class="skill-count">↗ 210 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">💰</div>
+    <h3>Санхүү & Нягтлан</h3>
+    <p>Санхүүгийн шинжилгээ, нягтлан бодох бүртгэл, эрсдэл удирдлага</p>
+    <div class="skill-count">↗ 95 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">🗣️</div>
+    <h3>Борлуулалт</h3>
+    <p>Борлуулалт, харилцагчийн үйлчилгээ, бизнес хөгжүүлэлт</p>
+    <div class="skill-count">↗ 270 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">📋</div>
+    <h3>Менежмент</h3>
+    <p>Төсөл удирдлага, HR, стратегийн төлөвлөлт</p>
+    <div class="skill-count">↗ 155 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">🔒</div>
+    <h3>Кибер аюулгүй байдал</h3>
+    <p>Мэдээллийн аюулгүй байдал, penetration testing, SOC</p>
+    <div class="skill-count">↗ 48 ажлын байр</div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-icon">🌐</div>
+    <h3>Хэл шинжлэл</h3>
+    <p>Орчуулга, дүрслэл, олон улсын харилцаа холбоо</p>
+    <div class="skill-count">↗ 62 ажлын байр</div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="login">Нэвтрэх</button>
+      <button class="modal-tab" data-tab="register">Бүртгүүлэх</button>
+    </div>
+    <div class="tab-panel active" id="loginPanel">
+      <h2>Сайн уу 👋</h2>
+      <p class="modal-sub">Таны бүртгэлрүү нэвтэрнэ үү</p>
+      <div class="form-group"><label>И-мэйл</label><input type="email" placeholder="name@example.com"></div>
+      <div class="form-group"><label>Нууц үг</label><input type="password" placeholder="••••••••"></div>
+      <button class="modal-btn">Нэвтрэх →</button>
+      <p class="modal-footer-text">Бүртгэлгүй юу? <a data-open-tab="register">Бүртгүүлэх</a></p>
+    </div>
+    <div class="tab-panel" id="registerPanel">
+      <h2>Бүртгүүлэх ✨</h2>
+      <p class="modal-sub">SkillHire-д тавтай морил</p>
+      <div class="form-group"><label>Нэр</label><input type="text" placeholder="Таны нэр"></div>
+      <div class="form-group"><label>И-мэйл</label><input type="email" placeholder="name@example.com"></div>
+      <div class="form-group"><label>Нууц үг</label><input type="password" placeholder="••••••••"></div>
+      <button class="modal-btn">Бүртгүүлэх →</button>
+      <p class="modal-footer-text">Аль хэдийн бүртгэлтэй? <a data-open-tab="login">Нэвтрэх</a></p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2026 SkillHire Platform</p>
+  <div class="footer-links">
+    <a href="#">About</a><a href="#">Contact</a><a href="#">Privacy</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
